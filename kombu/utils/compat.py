@@ -79,7 +79,7 @@ def entrypoints(namespace):
     """Return setuptools entrypoints for namespace."""
     return (
         (ep, ep.load())
-        for ep in importlib_metadata.entry_points().get(namespace, [])
+        for ep in importlib_metadata.entry_points().select(group=namespace)
     )
 
 
